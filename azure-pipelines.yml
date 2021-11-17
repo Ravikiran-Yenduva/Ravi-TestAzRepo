@@ -9,6 +9,16 @@ trigger:
 pool:
   vmImage: windows-latest
 
+variables:
+  # the name of the service connection that you created above
+  serviceConnectionToAzure: RaviARMConnection
+  # the name of your web app here is the same one you used above
+  # when you created the web app using the Azure CLI
+  appName: Ravi-TestAzRepo
+  # the name of your functionApp is what you provided as
+  # stagingDirectory in pom.xml
+  functionAppName: 'Ravi-TestAzRepo'
+
 steps:
 - task: Maven@3
   inputs:
@@ -31,3 +41,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureFunctionApp@1
+  displayName: Azure Function App deploy
+  inputs:
+    azureSubscription: $(serviceConnectionToAzure)
+    appType: functionApp
+    appName: $(appName)
+    package: $(build.artifactstagingdirectory)/$(appName)
