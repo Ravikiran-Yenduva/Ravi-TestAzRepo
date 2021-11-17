@@ -42,10 +42,20 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: AzureFunctionApp@1
-  displayName: Azure Function App deploy
+###
+#- task: AzureFunctionApp@1
+  #displayName: Azure Function App deploy
+  #inputs:
+    #azureSubscription: $(serviceConnectionToAzure)
+    #appType: functionApp
+    #appName: $(appName)
+    #package: $(build.artifactstagingdirectory)/$(appName)
+
+####
+- task: AzureRmWebAppDeployment@4
   inputs:
-    azureSubscription: $(serviceConnectionToAzure)
-    appType: functionApp
-    appName: $(appName)
-    package: $(build.artifactstagingdirectory)/$(appName)
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'RaviARMConnection'
+    appType: 'functionApp'
+    WebAppName: 'test-ravi-func111'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
