@@ -32,9 +32,11 @@ steps:
     goals: 'package'
   
 - task: CopyFiles@2
+  displayName: Copy Files
   inputs:
+    SourceFolder: $(system.defaultworkingdirectory)/target/azure-functions/TestSampleFuncApp/
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: $(build.artifactstagingdirectory)
 
 - task: CopyFiles@2
   inputs:
@@ -42,12 +44,10 @@ steps:
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)/DropARMTemplate'
 
-      
 - task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: $(build.artifactstagingdirectory)   
 
 
 
