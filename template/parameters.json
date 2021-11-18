@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "0f39574d-d756-48cf-b622-0e27a6943bd2"
+        },
+        "name": {
+            "value": "Ravi-TestAzRepo"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "hostingPlanName": {
+            "value": "ASP-463457c8e8dbuildinginfrastructu-a9a7"
+        },
+        "serverFarmResourceGroup": {
+            "value": "463-457c8e8d-building-infrastructure-with-azure-pi"
+        },
+        "alwaysOn": {
+            "value": false
+        },
+        "storageAccountName": {
+            "value": "storageaccount463459f4e"
+        },
+        "sku": {
+            "value": "Dynamic"
+        },
+        "skuCode": {
+            "value": "Y1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "use32BitWorkerProcess": {
+            "value": true
+        },
+        "javaVersion": {
+            "value": "11"
+        },
+        "netFrameworkVersion": {
+            "value": "v6.0"
+        }
+    }
+}
