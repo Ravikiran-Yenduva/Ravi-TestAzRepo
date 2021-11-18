@@ -35,6 +35,13 @@ steps:
   inputs:
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'template'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/DropARMTemplate'
+
       
 - task: PublishBuildArtifacts@1
   inputs:
@@ -42,20 +49,5 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-###
-#- task: AzureFunctionApp@1
-  #displayName: Azure Function App deploy
-  #inputs:
-    #azureSubscription: $(serviceConnectionToAzure)
-    #appType: functionApp
-    #appName: $(appName)
-    #package: $(build.artifactstagingdirectory)/$(appName)
 
-####
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'RaviARMConnection'
-    appType: 'functionApp'
-    WebAppName: 'test-ravi-func111'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+
