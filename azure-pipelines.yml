@@ -54,7 +54,8 @@ steps:
     azureSubscription: RaviARMConnection
     appType: functionApp
     appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
+    package: $(System.DefaultWorkingDirectory)/_Ravikiran-Yenduva.Ravi-TestAzRepo/drop
+    
 
 
 
