@@ -9,16 +9,6 @@ trigger:
 pool:
   vmImage: windows-latest
 
-variables:
-  # the name of the service connection that you created above
-  serviceConnectionToAzure: RaviARMConnection
-  # the name of your web app here is the same one you used above
-  # when you created the web app using the Azure CLI
-  appName: TestSampleFuncApp
-  # the name of your functionApp is what you provided as
-  # stagingDirectory in pom.xml
-  functionAppName: 'Ravi-TestAzRepo'
-
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
@@ -30,7 +20,7 @@ steps:
     location: 'East US'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/webapp/storage.json'
-    csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/webapp/storage.json'
+    csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/webapp/parameters.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
 
