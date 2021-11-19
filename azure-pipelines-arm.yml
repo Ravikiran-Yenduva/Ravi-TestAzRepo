@@ -29,8 +29,8 @@ steps:
     resourceGroupName: '463-1c2ced11-building-infrastructure-with-azure-pi'
     location: 'East US'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/tree/master/template/template.json'
-    csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/tree/master/template/parameters.json.json'
+    csmFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/webapp/storage.json'
+    csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/webapp/storage.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
 
