@@ -21,7 +21,7 @@ steps:
     templateLocation: 'URL of the file'
     csmFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/StorageTemplates/template.json'
     csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/blob/master/template/StorageTemplates/parameters.json'
-    deploymentMode: 'Incremental'
+    deploymentMode: Validation
     deploymentName: 'DeployPipelineTemplate'
 
 
