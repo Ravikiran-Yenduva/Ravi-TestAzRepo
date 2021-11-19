@@ -40,7 +40,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'template'
+    SourceFolder: 'ARMtemplates'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)/DropARMTemplate'
 
