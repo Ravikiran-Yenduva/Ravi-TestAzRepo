@@ -1,0 +1,39 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  # the name of the service connection that you created above
+  serviceConnectionToAzure: RaviARMConnection
+  # the name of your web app here is the same one you used above
+  # when you created the web app using the Azure CLI
+  appName: TestSampleFuncApp
+  # the name of your functionApp is what you provided as
+  # stagingDirectory in pom.xml
+  functionAppName: 'Ravi-TestAzRepo'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'RaviARMConnection'
+    subscriptionId: '4cedc5dd-e3ad-468d-bf66-32e31bdb9148'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '463-1c2ced11-building-infrastructure-with-azure-pi'
+    location: 'East US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/tree/master/template/template.json'
+    csmParametersFileLink: 'https://github.com/Ravikiran-Yenduva/Ravi-TestAzRepo/tree/master/template/parameters.json.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
+
+
+
+
