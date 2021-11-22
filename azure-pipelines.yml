@@ -49,6 +49,14 @@ steps:
   inputs:
     PathtoPublish: $(build.artifactstagingdirectory)   
 
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'RaviARMConnection'
+    appType: 'functionApp'
+    appName: 'TestSampleFuncApp'
+    package: '$(System.DefaultWorkingDirectory)/_Ravikiran-Yenduva.Ravi-TestAzRepo/drop/TestSampleFuncApp-1.0-SNAPSHOT.jar'
+    deploymentMethod: 'zipDeploy'
+    
 #- task: AzureFunctionApp@1
 #  inputs:
 #    azureSubscription: RaviARMConnection
