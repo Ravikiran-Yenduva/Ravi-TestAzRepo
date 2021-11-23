@@ -44,18 +44,23 @@ steps:
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)/DropTerraform'
 
+#- task: PublishBuildArtifacts@1
+#  displayName: Publish Artifact
+#  inputs:
+#    PathtoPublish: $(build.artifactstagingdirectory)
 - task: PublishBuildArtifacts@1
-  displayName: Publish Artifact
   inputs:
-    PathtoPublish: $(build.artifactstagingdirectory)   
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
-- task: AzureFunctionApp@1
-  inputs:
-    azureSubscription: 'RaviARMConnection'
-    appType: 'functionApp'
-    appName: 'TestSampleFuncApp'
-    package: '$(System.DefaultWorkingDirectory)/_Ravikiran-Yenduva.Ravi-TestAzRepo/drop/TestSampleFuncApp-1.0-SNAPSHOT.jar'
-    deploymentMethod: 'zipDeploy'
+#- task: AzureFunctionApp@1
+#  inputs:
+#    azureSubscription: 'RaviARMConnection'
+#    appType: 'functionApp'
+#    appName: 'TestSampleFuncApp'
+#    package: '$(System.DefaultWorkingDirectory)/_Ravikiran-Yenduva.Ravi-TestAzRepo/drop/TestSampleFuncApp-1.0-SNAPSHOT.jar'
+#    deploymentMethod: 'zipDeploy'
     
 #- task: AzureFunctionApp@1
 #  inputs:
