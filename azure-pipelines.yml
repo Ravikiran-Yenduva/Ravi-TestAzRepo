@@ -40,9 +40,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'ARMFuncappTemplate'
+    SourceFolder: 'Terraform'
     Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)/DropARMTemplate'
+    TargetFolder: '$(build.artifactstagingdirectory)/DropTerraform'
 
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
